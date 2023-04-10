@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [newTask, setNewTask] = useState('')
+  const [tasks, setTasks] = useState([])
+
+  function handleSubmit(e) {
+    e.preventDefault()
+
+    setTasks(ongoingTasks => {
+      return [... ongoingTasks, {
+        id: crypto.randomUUID(), title: newTask, completed: false
+      }]
+    })
+
+    setNewTask(''); // clear the input field after adding the task
+  }
+
+  function handleToggleComplete(taskId) {
+    setTasks(tasks => {
+      return tasks.map(task => {
+        if (task.id === taskId) {
+          return { ...task, completed: !task.completed };
+        } else {
+          return task;
+        }
+      });
+    });
+  }
+
+  function handleDeleteTask(taskId) {
+    setTasks(ongoingTasks => {
+      return ongoingTasks.filter(task => task.id !== taskId);
+    });
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    <>
+      <form onSubmit={handleSubmit} className="new-action-form">
+        <div className="new-action-form-row">
+          <label htmlFor="task">Task List</label>
+          <input value={newTask} onChange={e => setNewTask(e.target.value)} type="text" id='task' />
+        </div>
+        <button className='btn'>Add Task</button>
+      </form>
 
-export default App
+      <h1 className='header'> Task List</h1>
+      <ul className='task-list'>
+        {tasks.length === 0 && "There are currently no remaining tasks"}
+        {tasks.map(task => (
+          <li key={task.id}>
+            <label>
+              <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => handleToggleComplete(task.id)}
+              />
+              {task.title}
+            </label>
+            <button className='btn btn-danger' onClick={() => handleDeleteTask(task.id)}> Delete</button>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
