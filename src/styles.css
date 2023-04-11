@@ -1,0 +1,81 @@
+/* NewTaskForm styles */
+.new-action-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.new-action-form-row {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.new-action-form-row label {
+  margin-right: 10px;
+}
+
+.new-action-form-row input[type='text'] {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.new-action-form button {
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* TaskList styles */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.task-list li label {
+  margin-right: 10px;
+  flex: 1;
+}
+
+.task-list li input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+.task-list li button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.task-list li button:hover {
+  color: #c82333;
+}
+
+.task-list li button i {
+  font-size: 16px;
+}
+
+/* Font Awesome icons */
+.fa-trash {
+  color: #dc3545;
+}
+
+.fa-trash:hover {
+  color: #c82333;
+}
