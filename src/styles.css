@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* NewTaskForm styles */
 .new-action-form {
   display: flex;
@@ -33,6 +35,23 @@
   cursor: pointer;
 }
 
+/* TaskFilterButtons styles */
+.task-filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-filter-buttons button {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 /* TaskList styles */
 .task-list {
   list-style: none;
@@ -47,7 +66,6 @@
 
 .task-list li label {
   margin-right: 10px;
-  flex: 1;
 }
 
 .task-list li input[type='checkbox'] {
@@ -60,7 +78,11 @@
   color: #dc3545;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 10px;
+}
+
+.task-list li button.btn-edit {
+  background-color: #ffc107;
+  color: #212529;
 }
 
 .task-list li button:hover {
@@ -78,4 +100,106 @@
 
 .fa-trash:hover {
   color: #c82333;
+}
+
+/* Media queries for responsive design */
+/* Mobile phones and Tablets (same layout for both) */
+@media screen and (max-width: 768px) {
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .new-action-form {
+    margin-bottom: 10px;
+  }
+
+  .new-action-form-row {
+    margin-right: 10px;
+  }
+
+  .task-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .task-list li label {
+    margin-right: 10px;
+    flex: 1;
+  }
+
+  .task-list li button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
+  .task-list li button.btn-edit {
+    background-color: #ffc107;
+    color: #212529;
+    margin-left: 5px;
+  }
+
+  .task-list li input[type='date'] {
+    margin-left: 5px;
+  }
+}
+
+/* Desktops */
+@media screen and (min-width: 769px) {
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .new-action-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .new-action-form-row {
+    margin-right: 10px;
+  }
+
+  .new-action-form button {
+    margin-left: 10px;
+  }
+
+  .task-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .task-list li label {
+    margin-right: 10px;
+    flex: 1;
+  }
+
+  .task-list li button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
+  .task-list li button.btn-edit {
+    background-color: #ffc107;
+    color: #212529;
+    margin-left: 5px;
+  }
+
+  .task-list li input[type='date'] {
+    margin-left: 5px;
+  }
 }
