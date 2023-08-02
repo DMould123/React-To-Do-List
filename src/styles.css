@@ -1,5 +1,10 @@
 /* styles.css */
 
+/* App Container */
+.app-container {
+  padding: 20px;
+}
+
 /* NewTaskForm styles */
 .new-action-form {
   display: flex;
@@ -52,6 +57,24 @@
   cursor: pointer;
 }
 
+/* Task Sorting Dropdown */
+.task-sort-dropdown {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.task-sort-dropdown label {
+  margin-right: 5px;
+}
+
+.task-sort-dropdown select {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
 /* TaskList styles */
 .task-list {
   list-style: none;
@@ -66,6 +89,7 @@
 
 .task-list li label {
   margin-right: 10px;
+  flex: 1;
 }
 
 .task-list li input[type='checkbox'] {
@@ -78,19 +102,36 @@
   color: #dc3545;
   cursor: pointer;
   font-size: 16px;
+  margin-left: 10px;
 }
 
 .task-list li button.btn-edit {
   background-color: #ffc107;
   color: #212529;
+  margin-left: 5px;
 }
 
-.task-list li button:hover {
-  color: #c82333;
+.task-list li input[type='date'] {
+  margin-left: 5px;
 }
 
-.task-list li button i {
-  font-size: 16px;
+.task-list li span.task-priority {
+  margin-left: 5px;
+  padding: 3px 6px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.task-list li.low .task-priority {
+  background-color: #28a745;
+}
+
+.task-list li.medium .task-priority {
+  background-color: #ffc107;
+}
+
+.task-list li.high .task-priority {
+  background-color: #dc3545;
 }
 
 /* Font Awesome icons */
@@ -119,8 +160,13 @@
     margin-right: 10px;
   }
 
+  .task-list {
+    flex-wrap: wrap; /* Allow items to wrap to new line */
+  }
+
   .task-list li {
-    margin-bottom: 10px;
+    width: 100%; /* Set the width to fill the entire screen */
+    margin-bottom: 20px; /* Add some spacing between the items */
     display: flex;
     align-items: center;
   }
@@ -128,6 +174,7 @@
   .task-list li label {
     margin-right: 10px;
     flex: 1;
+    font-size: 16px; /* Adjust the font size for better readability */
   }
 
   .task-list li button {
@@ -136,17 +183,24 @@
     color: #dc3545;
     cursor: pointer;
     font-size: 16px;
-    margin-left: 10px;
+    margin-left: 5px; /* Adjust the margin for better spacing */
   }
 
   .task-list li button.btn-edit {
     background-color: #ffc107;
     color: #212529;
-    margin-left: 5px;
+    margin-left: 5px; /* Adjust the margin for better spacing */
   }
 
   .task-list li input[type='date'] {
     margin-left: 5px;
+  }
+
+  .task-list li span.task-priority {
+    margin-left: 5px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 12px; /* Adjust the font size for better readability */
   }
 }
 
@@ -201,5 +255,24 @@
 
   .task-list li input[type='date'] {
     margin-left: 5px;
+  }
+
+  .task-list li span.task-priority {
+    margin-left: 5px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    color: #fff;
+  }
+
+  .task-list li.low .task-priority {
+    background-color: #28a745;
+  }
+
+  .task-list li.medium .task-priority {
+    background-color: #ffc107;
+  }
+
+  .task-list li.high .task-priority {
+    background-color: #dc3545;
   }
 }
